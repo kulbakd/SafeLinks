@@ -1,0 +1,9 @@
+main {
+    width: 100%;
+    max-width: 600px;
+}
+
+#link-copied-toast {
+    transition: opacity 1s;
+    opacity: 0;
+}

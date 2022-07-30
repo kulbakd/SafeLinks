@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SafeLinks.Core.Domain", "src\SafeLinks.Core.Domain\SafeLinks.Core.Domain.csproj", "{564B5AED-460A-467D-86D2-EA0A5C99D179}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SafeLinks.Core", "SafeLinks.Core", "{90796674-008B-4CA0-BB0F-8AC1FE8F8D86}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{6FB8C29F-17C8-4A2E-8BE3-2DAB3B752A6F}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SafeLinks.Core.Application", "src\SafeLinks.Core.Application\SafeLinks.Core.Application.csproj", "{861A686B-7DAA-4E6E-89FF-B8017CF1AB03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SafeLinks.Shared", "src\SafeLinks.Shared\SafeLinks.Shared.csproj", "{002A8C7F-E12B-44C0-BF5F-7262E8F42C5A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SafeLinks.Shared", "SafeLinks.Shared", "{DB45EBFC-634F-465D-AC45-BE5F952DF632}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SafeLinks.Web", "SafeLinks.Web", "{E58DABA5-9953-4D16-8C61-549AF5F80B83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SafeLinks.Web.Client", "src\SafeLinks.Web.Client\SafeLinks.Web.Client.csproj", "{645C9473-4A95-4DE8-8CA7-26DBA5371B14}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SafeLinks.Infrastructure", "SafeLinks.Infrastructure", "{13EDFE9D-4398-474A-97B0-99E81E60E7FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SafeLinks.Infrastructure", "src\SafeLinks.Infrastructure\SafeLinks.Infrastructure.csproj", "{0623995A-973E-4D66-9A83-229A434A5D2F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{564B5AED-460A-467D-86D2-EA0A5C99D179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{564B5AED-460A-467D-86D2-EA0A5C99D179}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{564B5AED-460A-467D-86D2-EA0A5C99D179}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{564B5AED-460A-467D-86D2-EA0A5C99D179}.Release|Any CPU.Build.0 = Release|Any CPU
+		{861A686B-7DAA-4E6E-89FF-B8017CF1AB03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{861A686B-7DAA-4E6E-89FF-B8017CF1AB03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{861A686B-7DAA-4E6E-89FF-B8017CF1AB03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{861A686B-7DAA-4E6E-89FF-B8017CF1AB03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{002A8C7F-E12B-44C0-BF5F-7262E8F42C5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{002A8C7F-E12B-44C0-BF5F-7262E8F42C5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{002A8C7F-E12B-44C0-BF5F-7262E8F42C5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{002A8C7F-E12B-44C0-BF5F-7262E8F42C5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{645C9473-4A95-4DE8-8CA7-26DBA5371B14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{645C9473-4A95-4DE8-8CA7-26DBA5371B14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{645C9473-4A95-4DE8-8CA7-26DBA5371B14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{645C9473-4A95-4DE8-8CA7-26DBA5371B14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0623995A-973E-4D66-9A83-229A434A5D2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0623995A-973E-4D66-9A83-229A434A5D2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0623995A-973E-4D66-9A83-229A434A5D2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0623995A-973E-4D66-9A83-229A434A5D2F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{564B5AED-460A-467D-86D2-EA0A5C99D179} = {90796674-008B-4CA0-BB0F-8AC1FE8F8D86}
+		{861A686B-7DAA-4E6E-89FF-B8017CF1AB03} = {90796674-008B-4CA0-BB0F-8AC1FE8F8D86}
+		{002A8C7F-E12B-44C0-BF5F-7262E8F42C5A} = {DB45EBFC-634F-465D-AC45-BE5F952DF632}
+		{645C9473-4A95-4DE8-8CA7-26DBA5371B14} = {E58DABA5-9953-4D16-8C61-549AF5F80B83}
+		{0623995A-973E-4D66-9A83-229A434A5D2F} = {13EDFE9D-4398-474A-97B0-99E81E60E7FE}
+	EndGlobalSection
+EndGlobal

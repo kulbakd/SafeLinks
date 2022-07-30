@@ -1,0 +1,58 @@
+@page "/edit/{ShortcutGuid}/{EditGuid}"
+
+<PageTitle>Edit SafeLink - SafeLinks.sk</PageTitle>
+
+<main class="text-center">
+    <h1 class="mt-5">Here is your SafeLink!</h1>
+    <p class="text-black-50 line-break-anywhere mb-4">
+        Below is your short link for address:<br/> <a href="@ShortcutViewModel.Link.Url">@ShortcutViewModel.Link.Url</a>
+    </p>
+        
+    <input type="text" class="form-control mb-1 cursor-default fs-4" readonly="readonly" value="@ShortcutViewModel.ShortcutUrl">
+
+    <div class="d-flex flex-column justify-content-center">
+        <button type="submit" class="btn btn-lg btn-primary mb-2" @onclick="CopyLinkToClipboard">
+            Copy @* <span class="oi oi-clipboard"></span> *@
+        </button>
+        <p class="mb-5">
+            <a href="/"> <span class="oi oi-document"></span> Create new</a>
+        </p>
+        <p class="mb-2">@(ShowDeleteConfirmation ? "Are you sure?" : "You can also:")</p>
+        @if (ShowDeleteConfirmation)
+        {
+            <div class="w-100 d-flex">
+                <button type="submit" class="btn btn btn-outline-danger flex-50 me-1" @onclick="DeleteShortcut">
+                    Yes, delete
+                </button>
+                <button type="submit" class="btn btn btn-outline-dark flex-50 ms-1" @onclick="() => { ShowDeleteConfirmation = false; ShowDeleteError = false; }">
+                    Cancel
+                </button>
+            </div>
+        }
+        else
+        {
+            <button type="submit" class="btn btn btn-outline-danger" @onclick="() => { ShowDeleteConfirmation = true; }">
+                Delete link
+            </button>
+        }
+        
+        @if (ShowDeleteError)
+        {
+            <div class="alert alert-danger p-1 mt-2" role="alert">
+              @DeleteError
+            </div>
+        }
+    </div>
+</main>
+
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+    <div id="link-copied-toast" class="toast with-transition show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">SafeLinks</strong>
+            @* <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button> *@
+        </div>
+        <div class="toast-body">
+            Short link was copied to your clipboard.
+        </div>
+    </div>
+</div>
