@@ -1,0 +1,49 @@
+name: Release deploy
+
+on:
+  release:
+    types:
+      - created
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 6.0.302
+
+      - name: Dotnet Publish
+        run: dotnet publish src/SafeLinks.Web.Client -r linux-x64 --no-self-contained --configuration Release -o deploy
+
+      #       - name: Upload a Build Artifact
+      #         uses: actions/upload-artifact@v3
+      #         with:
+      #           name: Release-Self-Contained-Linux-64 # optional, default is artifact
+      #           path: deploy/*
+
+      - name: Prepare folder name
+        run: echo "FOLDER_DATETIME_NAME=$(date "+%Y%m%d%H%M%S")" >> $GITHUB_ENV
+
+      - name: Copy via ssh
+        uses: garygrossgarten/github-action-scp@v0.7.3
+        with:
+          local: /home/runner/work/SafeLinks/SafeLinks/deploy/
+          remote: ${{ secrets.REMOTE_TARGET }}/${{ env.FOLDER_DATETIME_NAME }}
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          privateKey: ${{ secrets.REMOTE_SSH_KEY }}
+
+      - name: Run SSH command
+        uses: garygrossgarten/github-action-ssh@v0.6.3
+        with:
+          command: ${{ secrets.REMOTE_FINALIZE_SCRIPT }} ${{ env.FOLDER_DATETIME_NAME }}
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          privateKey: ${{ secrets.REMOTE_SSH_KEY }}
