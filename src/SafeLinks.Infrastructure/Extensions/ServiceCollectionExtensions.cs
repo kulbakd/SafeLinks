@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SafeLinks.Core.Application.Interfaces.Repositories;
-using SafeLinks.Core.Application.Interfaces.Services;
 using SafeLinks.Infrastructure.Contexts;
 using SafeLinks.Infrastructure.Repositories;
 
@@ -18,7 +17,7 @@ public static class ServiceCollectionExtensions
         }
         else
         {
-            RegisterProductionOnlyServices(services);
+            RegisterProductionOnlyServices(services, configuration);
         }
 
         return services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
@@ -31,8 +30,10 @@ public static class ServiceCollectionExtensions
                 .UseSqlite(configuration.GetConnectionString("DefaultConnection")));
     }
     
-    private static IServiceCollection RegisterProductionOnlyServices(IServiceCollection services)
+    private static IServiceCollection RegisterProductionOnlyServices(IServiceCollection services, IConfiguration configuration)
     {
-        return services;
+        return services.AddDbContext<SafeLinksDbContext>(options =>
+            options.UseMySql(
+                configuration.GetConnectionString("DefaultConnection"), new MariaDbServerVersion("10.6.7")));
     }
 }

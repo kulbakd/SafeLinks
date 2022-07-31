@@ -7,7 +7,7 @@ namespace SafeLinks.Infrastructure.Contexts;
 public class SafeLinksDbContext : DbContext
 {
     public DbSet<SafetyAnalysis> SafetyAnalyses { get; set; }
-    public DbSet<Link> Link { get; set; }
+    public DbSet<Link> Links { get; set; }
     public DbSet<Shortcut> Shortcuts { get; set; }
     
     public SafeLinksDbContext(DbContextOptions options) : base(options) { }

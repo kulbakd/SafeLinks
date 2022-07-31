@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SafeLinks.Infrastructure.Contexts;
 
@@ -10,9 +11,10 @@ using SafeLinks.Infrastructure.Contexts;
 namespace SafeLinks.Infrastructure.Migrations
 {
     [DbContext(typeof(SafeLinksDbContext))]
-    partial class SafeLinksDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220731114741_RenameLinksTable")]
+    partial class RenameLinksTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.7");
