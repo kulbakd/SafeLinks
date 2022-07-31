@@ -4,6 +4,9 @@ SafeLinks is a simple URL shortener built on .NET 6 with using Blazor framework 
 
 For demo visit: [SafeLinks.sk](https://safelinks.sk)
 
+![](https://github.com/fellak/SafeLinks/blob/main/screen.gif)
+
+
 ## Run SafeLinks locally
 
 ### Prerequisites
