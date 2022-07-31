@@ -14,6 +14,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Replace Database Connection String
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: 'src/SafeLinks.Web.Client/appsettings.json'
+        env:
+          ConnectionStrings.DefaultConnection: ${{ secrets.MARIADB_CONNECTION_STRING }}
+
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v2
         with:
