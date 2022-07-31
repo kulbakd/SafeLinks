@@ -2,3 +2,15 @@ main {
     width: 100%;
     max-width: 600px;
 }
+
+@media (min-width: 576px) {
+    .subtitle {
+        white-space: nowrap;
+        overflow-x: visible;
+    }
+}
+
+.asterisk-note {
+    font-size:0.75em;
+}
+    
